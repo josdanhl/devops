@@ -1,6 +1,5 @@
 [Unit]
 Description=docker compose boot
-Requires=docker.service
 After=docker.service
 
 [Service]
