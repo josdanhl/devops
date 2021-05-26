@@ -6,7 +6,7 @@ After=docker.service
 Type=oneshot
 RemainAfterExit=yes
 WorkingDirectory=/home/ubuntu/sonar
-ExecStart=sudo sysctl -w vm.max_map_count=262144 || /usr/local/bin/docker-compose -f /home/ubuntu/sonar/docker-compose.yml up -d --remove-orphans
+ExecStart=/usr/local/bin/docker-compose -f /home/ubuntu/sonar/docker-compose.yml up -d --remove-orphans
 TimeoutStartSec=0
 
 [Install]
