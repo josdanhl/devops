@@ -6,7 +6,7 @@ After=docker.service
 Type=oneshot
 RemainAfterExit=yes
 WorkingDirectory=/home/ubuntu/sonar
-ExecStart=/usr/locl/bin/docker-compose -f /home/ubunt/sonar/docker-compose.yml up -d --remove-orphans
+ExecStart=/usr/local/bin/docker-compose -f /home/ubuntu/sonar/docker-compose.yml up -d --remove-orphans
 
 [Install]
 WantedBy=multi-user.target
