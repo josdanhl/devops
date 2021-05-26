@@ -19,7 +19,6 @@ services:
       nofile:
        soft: 65536
        hard: 65536
-    restart: always
   db:
     image: postgres
     networks:
@@ -31,7 +30,6 @@ services:
       - postgresql:/var/lib/postgresql
       # This needs explicit mapping due to https://github.com/docker-library/postgres/blob/4e48e3228a30763913ece952c611e5e9b95c8759/Dockerfile.template#L52
       - postgresql_data:/var/lib/postgresql/data
-    restart: always
 networks:
   sonarnet:
     driver: bridge
