@@ -1,12 +1,16 @@
 [Unit]
-Description=docker boot
+Description=docker compose boot
+Requires=docker.service
 After=docker.service
 
 [Service]
-Type=oneshot
-RemainAfterExit=yes
 WorkingDirectory=/home/ubuntu/sonar
-ExecStart=/usr/local/bin/docker-compose -f /home/ubuntu/sonar/docker-compose.yml up -d --remove-orphans
+ExecStart=sudo sysctl -w vm.max_map_count=262144 || /usr/local/bin/docker-compose up
+ExecStop=/usr/local/bin/docker-compose down
+TimeoutStartSec=0
+Restart=on-failure
+StartLimitIntervalSec=60
+StartLimitBurst=3
 
 [Install]
 WantedBy=multi-user.target
